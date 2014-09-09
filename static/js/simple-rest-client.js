@@ -57,9 +57,16 @@
 					$.ajax({ 
 						url: this.settings.prefix + this.settings.endpoint, 
 						dataType: this.settings.dataType,
-						type: 'GET' }).done(function (data) {							
-								obj.normalizeData(data,obj);							
-						}); 						
+						type: 'GET',
+						error:  function (xhr, ajaxOptions, thrownError) {
+								console.log(xhr.statusText);
+								console.log(thrownError);
+						},
+						success: function (data) {			
+								console.log(data);
+							obj.normalizeData(data,obj);
+						}
+					});
 				},normalizeData : function (data,obj) {
 					
 					var result = [];
@@ -81,6 +88,7 @@
 						obj.data = data.resultset;									
 					} else obj.data = data;					
 					
+					
 					if ( obj.settings.target !== null) {
 						obj.dataView(obj.settings.template,obj.settings.target,obj.data, obj.settings.templateUrl);
 						
@@ -100,9 +108,14 @@
 							url: templateUrl,
 							async: false,
 							type: 'GET',
-							dataType: 'html'
-						}).done(function (data) {							
-							source = data;
+							dataType: 'html',
+							error:  function (xhr, ajaxOptions, thrownError) {
+									console.log(xhr.statusText);
+									console.log(thrownError);
+							},
+							success: function (data) {			
+									source = data;
+							}
 						});
 					} else {					
 						source = $("#" + tpl).html();

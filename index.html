@@ -23,7 +23,7 @@
   </head>
   <body>
     <div class="container">  
-	  <nav class="navbar navbar-default" role="navigation">
+	  <nav class="navbar navbar-default hide" role="navigation">
 		
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -44,7 +44,7 @@
 			  <!-- User info -->
 			  <ul class="nav navbar-nav navbar-right" id="user-menu"> 
 				<li class="dropdown">
-				   <span id="qrcode"></span>
+				   <!-- <span id="qrcode"></span> -->
 				</li>
 			  </ul>
 			  
@@ -55,7 +55,7 @@
 		<!--<div class="row checkbox" align="right"><label><input type="checkbox" id="data-cache" value="1" /> Acelerar navegação</label> </div>-->  
 		<div class="row" align="center" id="loading" style="display:none"><img src="static/img/ajax-loader.gif" /></div>
 		<div class="row" style="height:20px"></div>
-		<div class="row" id="content"></div>
+		<div class="row" id="data-view"></div>
 	
 	 </div><!-- /.container-fluid -->
 	 
@@ -72,7 +72,7 @@
     <script src="static/js/simple-rest-client.js"></script>
     <script src="static/js/init-app.js"></script>
    
-    <script id="entry-template" type="text/x-handlebars-template">	
+    <script id="menu-template" type="text/x-handlebars-template">	
 		{{#nav}}
 			<li class="dropdown">
 				{{#if submenu}}
@@ -90,7 +90,7 @@
 	</script>
 	<script type="text/javascript">
 		 var menu = { 'nav' : [
-			  {	url : '#/view1.html', title : 'Link 1', endpoint: '/endpoint/resource'},
+			  {	url : '#/msw/elenco/teste.html', title : 'Link 1', endpoint: '/msw/elenco/teste.json'},
 			  { url : '#', title : 'Menu 1',
 				submenu : [
 				  { url : '#', title : 'SubMenu 1'},
@@ -101,7 +101,8 @@
 		
 		
 		if ( menu !== undefined && menu.nav.length > 0 ) {
-			var source   = $("#main-menu").html();
+			var source   = $("#menu-template").html();
+			
 			var template = Handlebars.compile(source);
 			var html     = template(menu);
 			$("#main-menu").html(template(menu));

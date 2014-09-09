@@ -23,21 +23,20 @@ $(document).ready(function () {
         url : encodeURIComponent(url)
     });
 	
-
+	
 	
 	$("a[href^='#/']").each(function () {
 		var view = $(this).attr('href');
 		view = view.replace("#","");
+		var prefix = "endpoint";
 		var endpoint = $(this).attr('data-endpoint');
-		
-		
-		
+		console.log(prefix + view);
 		
 		$(this).bpmApi({
 			endpoint : endpoint,	
-			templateUrl : "static/views" + view,
-			target : "content",
-			prefix: "endpoint"
+			templateUrl : prefix + view,
+			target : "data-view",
+			prefix : prefix
 		 }); 	
 	});
 	
