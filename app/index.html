@@ -29,7 +29,7 @@
 
 
    <div class="container">  
-	  <nav class="navbar navbar-default hide" role="navigation">
+	  <nav class="navbar navbar-default " role="navigation">
 		
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -39,21 +39,22 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			   <a class="navbar-brand" href="#">Brand <br /> </a>
+			   <a class="navbar-brand" href="#">facebook/<br /> </a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="main-navbar-collapse">
 			  <!-- Dynamic menu -->
 			  <ul class="nav navbar-nav" id="main-menu"></ul>
-			  
-			  <form class="navbar-form navbar-left" role="search">
+			   <form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
-				  <input type="text" class="form-control rest-client" data-endpoint="//apps.widenet.com.br/busca-cep/api/cep.json" data-get="code" data-type="suggestion" data-template="/zipbr.html" placeholder="Pesquisar">
+				  <input type="text" class="form-control rest-client" data-endpoint="//graph.facebook.com/" data-query="%QUERY" data-get="username" data-type="suggestion" data-template="/facebook.html" placeholder="Pesquisar">
 				</div>
 			  </form>
+			  <!---->
 			  <!-- User info -->
 			  <ul class="nav navbar-nav navbar-right" id="user-menu"> 
+			  
 				<li class="dropdown">
 				   <!-- <span id="qrcode"></span> -->
 				</li>
@@ -62,7 +63,7 @@
 			</div><!-- /.navbar-collapse -->
 		
 		</nav>
-	 
+	  
 		<div class="row" align="center" id="loading" style="display:none"><img src="images/ajax-loader.gif" /></div>
 		<div class="row" style="height:20px"></div>
 		<div class="row" id="data-view"></div>
@@ -115,8 +116,8 @@
 			{{/nav}}
 		</script>
 		<script type="text/javascript">
-			 var menu = { 'nav' : [
-				  {	url : '#/zipbr.html', title : 'CEP', endpoint: '//apps.widenet.com.br/busca-cep/api/cep/22793-140.json' },
+			/* var menu = { 'nav' : [
+				  {	url : '#/facebook.html', title : 'Facebook', endpoint: 'http://graph.facebook.com/facebook' },
 				  { url : '#', title : 'Menu 1',
 					submenu : [
 					  { url : '#', title : 'SubMenu 1'},
@@ -135,7 +136,7 @@
 				$(".navbar").removeClass("hide");
 			} else {
 				console.log('Menu is not defined');
-			} 
+			} */
 			
 		</script>
     </body>
