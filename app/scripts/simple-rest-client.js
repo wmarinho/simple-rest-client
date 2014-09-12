@@ -8,7 +8,7 @@
 		
 		var pluginName = "restClient",
 				defaults = {
-				endpoint: null,
+				endpoint: "",
 				prefix: "",
 				query: null,
 				template: null,				
@@ -27,12 +27,18 @@
 				this._defaults = defaults;
 				this._name = pluginName;
 				this.data = [];
-				this.init();
+				this.settings.endpoint = this.settings.endpoint || $(this.element).attr('data-endpoint');
+				if ( this.settings.endpoint !== undefined && this.settings.endpoint !== "") {
+						this.init();
+				}
+				
 		}
 
 		$.extend(restClient.prototype, {
 				init: function () {
-						
+					
+					
+					
 					var view = $(this.element).attr('href'),
 						view_template = $(this.element).attr('data-template');
 					
@@ -46,7 +52,7 @@
 					
 					this.settings.templateUrl = this.settings.templateUrl || "partials" + view;
 						
-					this.settings.endpoint = this.settings.endpoint || $(this.element).attr('data-endpoint');
+					
 					this.settings.field = this.settings.field || $(this.element).attr('data-get');
 					this.settings.objType = this.settings.objType || $(this.element).attr('data-type');
 					this.settings.query = this.settings.query || '?' + this.settings.field + '=%QUERY' ;
