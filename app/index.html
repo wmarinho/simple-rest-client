@@ -48,7 +48,7 @@
 			  <ul class="nav navbar-nav" id="main-menu"></ul>
 			   <form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
-				  <input type="text" class="form-control rest-client" data-endpoint="//graph.facebook.com/" data-query="%QUERY" data-get="username" data-type="suggestion" data-template="/facebook.html" placeholder="Pesquisar">
+				  <input type="text" class="form-control rest-client" data-endpoint="//graph.facebook.com/" data-query="%QUERY" data-get="username" data-type="suggestion" data-template="/facebook.html" data-target="user-menu" placeholder="Pesquisar">
 				</div>
 			  </form>
 			  <!---->
@@ -116,7 +116,7 @@
 			{{/nav}}
 		</script>
 		<script type="text/javascript">
-			/* var menu = { 'nav' : [
+			 var menu = { 'nav' : [
 				  {	url : '#/facebook.html', title : 'Facebook', endpoint: 'http://graph.facebook.com/facebook' },
 				  { url : '#', title : 'Menu 1',
 					submenu : [
@@ -136,7 +136,7 @@
 				$(".navbar").removeClass("hide");
 			} else {
 				console.log('Menu is not defined');
-			} */
+			} 
 			
 		</script>
     </body>

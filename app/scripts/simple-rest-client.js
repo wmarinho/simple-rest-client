@@ -13,7 +13,7 @@
 				query: null,
 				template: null,				
 				templateUrl: null,				
-				target: "data-view",
+				target: null,
 				objType: null,
 				dataType: "json",
 				onLoad: null
@@ -56,7 +56,7 @@
 					this.settings.field = this.settings.field || $(this.element).attr('data-get');
 					this.settings.objType = this.settings.objType || $(this.element).attr('data-type');
 					this.settings.query = this.settings.query || $(this.element).attr('data-query') || '?' + this.settings.field + '=%QUERY' ;
-					this.settings.target = this.settings.target || $(this.element).attr('data-target');
+					this.settings.target = this.settings.target || $(this.element).attr('data-target') || "data-view";
 				
 				
 					if ( this.settings.endpoint !== undefined) {
