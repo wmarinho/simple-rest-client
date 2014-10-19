@@ -49,8 +49,9 @@
 						view = view_template;
 					}
 					
+					var partials = view !== null && view !== undefined ? "partials" + view : null;
 					
-					this.settings.templateUrl = this.settings.templateUrl || "partials" + view;
+					this.settings.templateUrl = this.settings.templateUrl || partials;
 						
 					
 					this.settings.field = this.settings.field || $(this.element).attr('data-get');
@@ -120,18 +121,18 @@
 					} else obj.data = data;	
 					
 					
-					if ( obj.settings.target !== null) {
 						obj.dataView(obj.settings.template,obj.settings.target,obj.data, obj.settings.templateUrl);
 						
 						if (typeof(obj.settings.onLoad) === 'function') {
 							obj.settings.onLoad();
 						}
-					}
+					
 					//console.log(obj.data);
 					return obj.data;
 				},
 				
 				dataView: function (tpl,target,data, templateUrl) {
+					if ( target === null || templateUrl === null) return 0;
 					var resultset = { resultset : data };
 					var source;
 					//console.log(templateUrl);
