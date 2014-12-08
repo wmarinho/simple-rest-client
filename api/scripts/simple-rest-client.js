@@ -180,8 +180,22 @@
 					
 				},
 				onSelected: function (el, data, obj) {
-					$.each(data, function (idx, val) {
-							$("input[data-set='"+ idx +"']").val(val);
+				
+					$.each(data, function (idx, val) {							
+							
+							if (typeof val == "object" && val !== null) {
+							
+								var v = jQuery.parseJSON(JSON.stringify(val));
+										
+									$.each(v, function (i, valor) {
+										
+										$("input[data-set='"+ idx +"."+ i +"']").val(valor);
+									});
+								
+							} else {
+								$("input[data-set='"+ idx +"']").val(val);
+							}
+							
 					});
 						
 					obj.dataView(obj.settings.template,obj.settings.target,data, obj.settings.templateUrl);
